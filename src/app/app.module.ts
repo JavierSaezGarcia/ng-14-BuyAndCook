@@ -12,18 +12,19 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeComponent } from './recipes/recipe/recipe.component';
 import { FooterComponent } from './footer/footer.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
+    HeaderComponent,    
     ShoppingListComponent,
     ShoppingListEditComponent,
     IngredientComponent,
     RecipeListComponent,
     RecipeItemComponent,
     RecipeDetailComponent,
-    RecipeComponent
+    RecipeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule
