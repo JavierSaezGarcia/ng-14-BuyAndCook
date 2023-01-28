@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 .reset{
     padding: 0px;
+    margin: 0px;
+}
+.img-thumb{
+    height: 105px; 
+    width:105px;
+    object-fit: cover;
+}
+.img-detail{
+
+    object-fit: cover;
+
 }
 
 
