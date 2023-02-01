@@ -3,15 +3,23 @@
     padding: 0px;
     margin: 0px;
 }
+
 .img-thumb{
     height: 105px; 
     width:105px;
     object-fit: cover;
 }
+
 .img-detail{
-
+    height: 35vh; 
+    width:  35vw;
     object-fit: cover;
+}
 
+body {
+    overflow-x:hidden;
+    height: 100vh;
+    min-height: 1080px;
 }
 
 

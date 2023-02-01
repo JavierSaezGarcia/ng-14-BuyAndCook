@@ -1,18 +1,14 @@
-<div class="row ">
-    <div class="col-xs-10 mb-5">
-       <app-shopping-edit></app-shopping-edit> 
-       <hr>
-       <p>The List</p>
-       <ul class="list-group col-xs-12 col-md-3">
-        <li class="list-group-item active" aria-current="true">An active item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-      </ul>
-
-    </div>
+<div class="row">
+  <div class="col-xs-10 ps-0">
+    <app-shopping-edit
+    (ingredientAdded)="onIngredientAdded($event)"
+    ></app-shopping-edit>
+    <hr>
+    <p>The List</p>
+    <ul class="list-group col-xs-12 col-md-3">
+      <a *ngFor="let ingredient of ingredients" class="list-group-item" style="cursor:pointer">{{ ingredient.name }} ({{
+        ingredient.amount }})</a>
+    </ul>
+  </div>
 </div>
 <hr>
-<hr>
-
