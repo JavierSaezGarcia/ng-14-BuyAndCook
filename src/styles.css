@@ -11,15 +11,44 @@
 }
 
 .img-detail{
-    height: 35vh; 
-    width:  35vw;
+    height: auto; 
+    max-height:400px;
+    width:  100vw;
+    min-width:300px;
     object-fit: cover;
 }
 
 body {
     overflow-x:hidden;
-    height: 100vh;
-    min-height: 1080px;
+    height: auto;
+    width: vw;
+    background-image: url(/assets/bg.jpg) 
 }
+.bg-white-semi{
+    background-color:rgb(255, 255, 255);
+    opacity: 1;
+    padding:40px;
+    margin-top: 20px;
+    height:auto;
+    width: 100vw;
+}
+
+
+.dropDown.show{
+    
+   display:block;
+   
+}
+
+.dropDown{
+    
+    display: none;
+    
+    
+    
+}
+
+
+
 
 
