@@ -16,6 +16,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 
 
@@ -37,7 +38,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  // Añadimos el servicio lista de compra en toda la aplicacion
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
