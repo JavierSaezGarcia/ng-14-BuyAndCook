@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
@@ -7,8 +7,7 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
   providedIn: 'root'
 })
 export class RecipeService {
-  // Creamos el objeto EventEmitter de tipo Recipe y lo asignamos a la propiedad de la clase recipeSelected
-  recipeSelected = new EventEmitter<Recipe>();
+  
   titles: string[] = ['Arroz al Horno','Chipirones encebollados','Pimientos rellenos de arroz'];
   comentaries: string[] = [
     'Arroz auténtico valenciano hecho de la misma forma desde hace 100 años. \n',

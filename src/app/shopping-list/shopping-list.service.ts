@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 
 @Injectable({
@@ -6,7 +7,8 @@ import { Ingredient } from '../shared/ingredient.model';
 })
 export class ShoppingListService {
   // 2.- para que funcione creamos un objeto emisor 
-  ingredientsChanged = new EventEmitter<Ingredient[]>();
+  // ingredientsChanged = new EventEmitter<Ingredient[]>();
+  ingredientsChanged = new Subject<Ingredient[]>();
 
   constructor() { }
 
@@ -24,7 +26,8 @@ export class ShoppingListService {
     this.ingredients.push(ingredient);
     // 3.- emitimos la copia con el array completo para depues recogerlo en un observable que
     // escucha los eventos en el shoppingListComponent.ts
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    // this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
   addIngredients(ingredients: Ingredient[]) {
     // Esta no es una forma muy aconsejada, demasiados eventos
@@ -33,7 +36,8 @@ export class ShoppingListService {
     // }
     // Esta es una mejor forma ya que con el operador rest enviamos una lista de ingredientes individuales 
     this.ingredients.push(...ingredients);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    // this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
 
   }
 

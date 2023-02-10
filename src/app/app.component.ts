@@ -7,11 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'BuyAndCook';
-  // lo inicializo aunque no recojo nada es para mostrar sin clicar una ventana
-  loadedFeature = 'recipe';
-  // feature es el evento ( $event) que recojo del output
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
+  title = 'Buy And Cook';
+ 
 }
