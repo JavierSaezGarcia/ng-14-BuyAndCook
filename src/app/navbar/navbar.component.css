@@ -7,3 +7,7 @@ ul li .active{
     border-bottom:1px solid white;
     
 }
+nav {
+    background-color: #d37800; 
+    height: 55px;
+}
