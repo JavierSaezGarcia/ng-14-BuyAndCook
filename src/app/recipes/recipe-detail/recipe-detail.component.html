@@ -14,7 +14,7 @@
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <p class="card-text" style="white-space:pre-wrap;">
+                        <p class="form-control" style="white-space:pre-wrap;text-align: left;">
                             {{ recipe.description }}
                         </p>
                     </div>
@@ -27,8 +27,8 @@
                 aria-expanded="false">Manage Recipe</button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item cursor" (click)="onAddToShoppingList()">To Shoping List</a></li>
-                <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
-                <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+                <li><a class="dropdown-item cursor">Edit Recipe</a></li>
+                <li><a class="dropdown-item cursor">Delete Recipe</a></li>
             </ul>
         </div>
         <div class="row">
@@ -38,9 +38,7 @@
                     class="list-group-item"
                     *ngFor="let ingredient of recipe.ingredients">
                     {{ ingredient.name }} - {{ ingredient.amount }} {{ ingredient.measure }} 
-
                     </li>
-
                 </ul>
             </div>
         </div>

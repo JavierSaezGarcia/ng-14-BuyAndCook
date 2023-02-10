@@ -1,7 +1,20 @@
 .header{
     height: 100px; 
     color:rgb(255, 255, 255);
-    background-color: #00b894;
-
+    background-color:#ffb834;
 }
-
+@media screen and (min-width:1300px) and (max-width:3000px){ 
+    .logo{
+        width:20vw; height: auto; 
+    }
+}
+@media screen and (min-width:800px) and (max-width:1300px) { 
+    .logo{
+        width:30vw; height: auto; 
+    }
+}
+@media screen and (min-width: 0px) and (max-width:800px) { 
+    .logo{
+        width:50vw; height: auto; 
+    }
+}

@@ -21,8 +21,7 @@ export class RecipeService {
   private recipes: Recipe[] = [
     new Recipe(
     this.titles[0],
-    this.comentaries[0]+'\n'+
-    'Preparación, cómo hacer arroz al horno valenciano:  '+'\n'+
+    this.comentaries[0]+'Preparación, cómo hacer arroz al horno valenciano:  '+'\n'+
     '1.- Corta las lonchas de panceta en tiras.\n\n'+
     '2.- Pon la paellera a fuego medio con un poco de aceite de oliva, '+
     'y cuando esté caliente incorpora la panceta junto con las costillas de cerdo y un poco de sal,'+
@@ -71,5 +70,8 @@ export class RecipeService {
 
   addIngredientsToShoppingList(ingredients:Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
+  }
+  getRecipeById(id: number){
+    return this.recipes[id];
   }
 }
