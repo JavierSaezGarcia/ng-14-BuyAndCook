@@ -9,6 +9,7 @@ export class ShoppingListService {
   // 2.- para que funcione creamos un objeto emisor 
   // ingredientsChanged = new EventEmitter<Ingredient[]>();
   ingredientsChanged = new Subject<Ingredient[]>();
+  startedEditing = new Subject<number>();
 
   constructor() { }
 
@@ -20,6 +21,9 @@ export class ShoppingListService {
   getIngredients() {
     // 1.- Como devolvemos una copia no se actualiza el total con el nuevo elemento
     return this.ingredients.slice();
+  }
+  getIngredient(index: number) {
+    return this.ingredients[index];
   }
 
   addIngredient(ingredient: Ingredient) {
@@ -39,6 +43,15 @@ export class ShoppingListService {
     // this.ingredientsChanged.emit(this.ingredients.slice());
     this.ingredientsChanged.next(this.ingredients.slice());
 
+  }
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index,1);
+    this.ingredientsChanged.next(this.ingredients.slice())
+    
   }
 
   

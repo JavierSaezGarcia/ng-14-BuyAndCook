@@ -1,6 +1,7 @@
 <div class="row">
+    <h1 class="">Ingredients</h1>
     <div class="col-xs-12">
-        <form>
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
             <div class="row">
                 <div class="col-sm-5 form-group">
                     <label for="name">Name</label>
@@ -8,7 +9,10 @@
                     type="text" 
                     id="name" 
                     class="form-control"
-                    #nameInput>
+                    name="name"
+                    ngModel
+                    required
+                    >
                 </div>
                 <div class="col-sm-2 form-group">
                     <label for="amount">Amount</label>
@@ -16,25 +20,36 @@
                     type="number" 
                     id="amount"
                     class="form-control"
-                    #amountInput>
+                    name="amount"
+                    min="0"
+                    ngModel
+                    required
+                    pattern="^[1-9]+[0-9]*$"
+                    >
                 </div>
                 <div class="col-sm-2 form-group">
                     <label for="measure">Measure</label>
-                    <select class="form-select" #selectInput>
-                        <option selected> - </option>
-                        <option value="gr">Gramos</option>
-                        <option value="l">Litres</option>
-                        <option value="un">Unids</option>
+                    <select class="form-select"
+                    name="measure"
+                    ngModel
+                    required>                        
+                        <option value="gr" default>Grams</option>
+                        <option value="l">Liters</option>
+                        <option value="un">Units</option>
                     </select>
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col-xs-12">
-                    <button class="btn btn-success" 
+                    <button class="btn btn-success btn-sm" 
                     type="submit"
-                    (click)="onAddIngredient()">Add</button>
-                    <button class="btn btn-danger ms-2" type="button">Delete Item</button>
-                    <button class="btn btn-secondary ms-2" type="button">Clear</button>
+                    [disabled]="!form.valid">{{ editMode ? 'Update' : 'Add'}}</button>
+                    <button 
+                        class="btn btn-danger btn-sm ms-2" 
+                        type="button" 
+                        (click)="onDelete()"
+                        *ngIf="editMode">Delete Item</button>
+                    <button class="btn btn-primary btn-sm ms-2" type="button" (click)="onClear()">Clear</button>
                 </div>
             </div>
         </form>

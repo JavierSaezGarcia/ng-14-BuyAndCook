@@ -12,6 +12,7 @@ import { ShoppingListService } from './shopping-list.service';
 export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ingredients:Ingredient[];
+  
   // es recomendable crear una propiedad de tipo Subscription 
   // y asignarle el observable para despues podernos desubscribir en el OnDestroy
   private changeSubs: Subscription;
@@ -20,6 +21,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   
   ngOnInit(): void {
     this.ingredients = this.shoppingListService.getIngredients();
+   
     // Despues de recoger los ingredientes nos subscribimos y asignamos los que recibimos 
     // this.ingredients = a lo que recibimos por el escuchador de eventos this.shoppingListService.ingredientsChanged
     // que lo inicializamos en una funcion de flecha como paranmetro 'ingredients' como si lo llamamos pepito
@@ -27,6 +29,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       .subscribe(
         (ingredients:Ingredient[]) => { 
           this.ingredients = ingredients; 
+          
         }
       )
   }
@@ -34,6 +37,12 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.changeSubs.unsubscribe();
   }
+  onEditItem(index: number){
+    // console.log(this.ingredients[index].name);
+    this.shoppingListService.startedEditing.next(index);
+  }
+  
+  
 
 
   // onIngredientAdded(ingredient: Ingredient){
