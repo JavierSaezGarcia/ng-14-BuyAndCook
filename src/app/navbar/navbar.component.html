@@ -7,18 +7,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav" style="z-index: 1; margin-top:3px">
             <ul class="navbar-nav ms-left" style="padding-left:0px;">
-                <li class="nav-item"><a class="nav-link" 
+                <li class="nav-item">
+                    <a class="nav-link" 
                                         aria-current="page" 
                                         routerLinkActive="active" 
                                         [routerLinkActiveOptions]="{exact: true}"
                                         routerLink="/recipes">
                                         <img src="assets/recipes.svg" alt="recipes">
-                                        Recipes</a></li>
+                                        Recipes</a>
+                                    </li>
+                                                            
                 <li class="nav-item"><a class="nav-link" 
                                         routerLinkActive="active" 
                                         routerLink="/shopping-list">                                        
                                         <img src="assets/shopping.svg" alt="shopping">
                                         Shopping List</a></li>
+                                        
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle cursor"  role="button" data-bs-toggle="dropdown"
                         
@@ -26,9 +30,12 @@
                         <img src="assets/gear.svg" alt="recipes">
                         Manage
                     </a>
+                    
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item cursor">Save Data</a></li>
+                        
                         <li><a class="dropdown-item cursor">Fetch Data</a></li>
+                        
 
                     </ul>
                 </li>

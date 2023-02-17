@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
-  
+  recipesChanged = new Subject<Recipe[]>();
   titles: string[] = ['Arroz al Horno','Chipirones encebollados','Pimientos rellenos de arroz'];
   comentaries: string[] = [
     'Arroz auténtico valenciano hecho de la misma forma desde hace 100 años. \n',
@@ -72,5 +73,20 @@ export class RecipeService {
   }
   getRecipeById(id: number){
     return this.recipes[id];
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next( this.recipes.slice());   
+
+  }
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index]= newRecipe;
+    this.recipesChanged.next( this.recipes.slice());    
+  }
+  deleteRecipe(index: number) {
+    
+    this.recipes.splice(index, 1);    
+    this.recipesChanged.next( this.recipes.slice());   
   }
 }

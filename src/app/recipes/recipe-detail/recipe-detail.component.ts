@@ -28,6 +28,7 @@ export class RecipeDetailComponent implements OnInit{
 
   onAddToShoppingList(){
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+    this.router.navigate(['shopping-list']);
   }
   
   onEditRecipe() {
@@ -36,5 +37,8 @@ export class RecipeDetailComponent implements OnInit{
     // this.router.navigate(['../', this.id,'edit'], {relativeTo: this.route}); 
     // Me daba error porque habia que subir un nivel en la ruta con '../'
   }
-  
+  onDeleteRecipe() {
+    this.recipeService.deleteRecipe(this.id);   
+    this.router.navigate(['../'],{relativeTo: this.route} );
+  }
 }

@@ -11,3 +11,21 @@ nav {
     background-color: #d37800; 
     height: 55px;
 }
+
+@media screen and (max-width:970px){
+    ul{
+        margin-top: 5px;
+        
+    }
+    
+    li{
+        background-color:#ffffff;
+        border-bottom:#222222 !important;
+        
+        
+    }
+    li a{
+        color: #495057 !important;
+       
+    }
+}
