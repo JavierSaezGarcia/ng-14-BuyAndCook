@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -27,6 +28,7 @@ import { RecipeService } from './recipes/recipe.service';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     HeaderComponent,     
     FooterComponent, 
@@ -45,10 +47,11 @@ import { RecipeService } from './recipes/recipe.service';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   // Añadimos el servicio lista de compra en toda la aplicacion
-  providers: [ShoppingListService, RecipeService],
+  providers: [ShoppingListService, RecipeService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
