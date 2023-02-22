@@ -41,10 +41,7 @@ export class DataStorageService {
           this.recipeService.setRecipes(recipes);
         })       
       )         
-      // .subscribe( recipes => {
-      //   // console.log(recipes);
-      //   // this.recipeService.setRecipes(recipes)
-      // })
+     
 
   }
 }
