@@ -1,31 +1,54 @@
 li{
     padding-left:15px;
-    font-weight: bold;
+    
+    font-weight: normal;
+    
+}
+.nav-item >  a{
+    opacity: 1 !important;
+    color: white;
+    
 }
 
 ul li .active{
     border-bottom:1px solid white;
     
+    
 }
 nav {
-    background-color: #d37800; 
-    height: 55px;
+    background-color: #31913e; 
+    height: 70px;
+    
 }
 
 @media screen and (max-width:970px){
-    ul{
-        margin-top: 5px;
+    nav{
+        height: 55px;
         
     }
+    ul{
+        margin-top: 4px;      
+       
+        
+        
+        
+        
+        
+    }
+   
     
     li{
         background-color:#ffffff;
-        border-bottom:#222222 !important;
+        border-bottom: 1px solid rgb(128, 128, 128);
         
         
     }
     li a{
-        color: #495057 !important;
+        color: #222222 !important;
+        
+        
+        
        
     }
+   
 }

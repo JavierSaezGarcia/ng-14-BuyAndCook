@@ -21,9 +21,11 @@
 
 body {
     overflow-x:hidden;
-    height: auto;
-    width: vw;
-    /* background-image: url(/assets/bg.jpg)  */
+     
+    background-image: url('assets/fondo3.jpg');    
+    background-size: 100% auto;  
+    min-height: 1150px;
+   
 }
 .bg-white-semi{
     background-color:rgb(255, 255, 255);
@@ -69,5 +71,19 @@ body {
 .mleft{
     margin-left:0.5rem;
 }
+body{
+   
+   
+    
+    
+}
+@media screen and (min-width: 0px) and (max-width:800px) { 
+   body{
+    background-image: url('assets/fondo3.jpg');    
+    background-size: 100%;
+    
+    }
+}
+
 
 

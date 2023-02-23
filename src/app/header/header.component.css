@@ -1,20 +1,25 @@
 .header{
-    height: 100px; 
+    height: 120px; 
     color:rgb(255, 255, 255);
-    background-color:#ffae18;
+    /* background: url('/assets/back.jpg');
+    background-size: auto 150px; */
+    
 }
 @media screen and (min-width:1300px) and (max-width:3000px){ 
     .logo{
-        width:20vw; height: auto; 
+        width:18vw; height: auto; 
     }
 }
 @media screen and (min-width:800px) and (max-width:1300px) { 
     .logo{
-        width:30vw; height: auto; 
+        width:22vw; height: auto; 
     }
 }
 @media screen and (min-width: 0px) and (max-width:800px) { 
     .logo{
-        width:50vw; height: auto; 
+        width:40vw; height: auto; 
+    }
+    .header{
+        height:80px
     }
 }

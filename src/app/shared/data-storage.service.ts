@@ -10,6 +10,8 @@ import { RecipeService } from '../recipes/recipe.service';
 })
 export class DataStorageService {
 
+  private urlRecipes: string = 'https://ng-recipe-book-6bf5d-default-rtdb.europe-west1.firebasedatabase.app/recipes.json';
+
   constructor( private http: HttpClient, private recipeService: RecipeService) { }
   
   storeRecipes() {
@@ -18,7 +20,7 @@ export class DataStorageService {
     // Ahora las enviamos a la BD
     this.http
       .put(
-        'https://ng-recipe-book-6bf5d-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', 
+        this.urlRecipes, 
         recipes 
       )
       .subscribe(response => {
@@ -27,7 +29,7 @@ export class DataStorageService {
   }
   fetchRecipes() {
    return this.http
-      .get<Recipe[]>('https://ng-recipe-book-6bf5d-default-rtdb.europe-west1.firebasedatabase.app/recipes.json')
+      .get<Recipe[]>(this.urlRecipes)
       .pipe(
         map(recipes => {
            return recipes.map(recipe => {          
