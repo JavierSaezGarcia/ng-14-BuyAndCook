@@ -20,8 +20,7 @@
 }
 
 body {
-    overflow-x:hidden;
-     
+    overflow-x:hidden;     
     background-image: url('assets/fondo3.jpg');    
     background-size: 100% auto;  
     min-height: 1150px;
@@ -71,12 +70,7 @@ body {
 .mleft{
     margin-left:0.5rem;
 }
-body{
-   
-   
-    
-    
-}
+
 @media screen and (min-width: 0px) and (max-width:800px) { 
    body{
     background-image: url('assets/fondo3.jpg');    

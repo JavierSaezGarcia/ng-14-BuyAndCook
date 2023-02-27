@@ -1,6 +1,5 @@
 li{
-    padding-left:15px;
-    
+    padding-left:15px;    
     font-weight: normal;
     
 }
@@ -27,28 +26,22 @@ nav {
         
     }
     ul{
-        margin-top: 4px;      
-       
-        
-        
-        
-        
-        
+        margin-top: 4px;    
     }
    
     
     li{
         background-color:#ffffff;
-        border-bottom: 1px solid rgb(128, 128, 128);
-        
-        
+        border-bottom: 1px solid rgb(235, 235, 235);        
     }
     li a{
-        color: #222222 !important;
-        
-        
-        
+        color: #5c5c5c !important;   
        
+    }
+    a:hover{
+        
+        color: #5c5c5c;
+        font-weight: bolder;
     }
    
 }
