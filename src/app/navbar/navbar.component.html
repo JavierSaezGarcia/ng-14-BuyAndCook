@@ -7,7 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav" style="z-index: 1; margin-top:3px">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-left:0px;">
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="isAuthenticated">
                     <a class="nav-link" 
                                         aria-current="page" 
                                         routerLinkActive="active" 
@@ -22,30 +22,33 @@
                                         routerLink="/shopping-list">                                        
                                         <i class="bi bi-cart3"></i> Shopping List</a></li>
                                         
+                
+                                       
+                
+            </ul>
+            
+            <form class="d-flex">                             
+                <input class="form-control me-2 form-control-sm" type="search" placeholder="Search recipe" aria-label="Search">
+                <button class="btn btn-primary btn-sm" type="submit" style="color:white;"><i class="bi bi-search"></i></button>            
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item" *ngIf="!isAuthenticated"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/auth"><i class="bi bi-person-check"></i> Login</a></li>
+                <li class="nav-item cursor" *ngIf="isAuthenticated">
+                    <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/auth" (click)="onLogout()"><i class="bi bi-person-check"></i> Logout</a>
+                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle cursor"  role="button" data-bs-toggle="dropdown"
-                        
+                    <a class="nav-link dropdown-toggle cursor"  role="button" data-bs-toggle="dropdown"                        
                         aria-expanded="false">
                         <i class="bi bi-gear"></i>
                         Manage
-                    </a>
-                    
+                    </a>                    
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item cursor" (click)="onSavedata()">Save Data</a></li>
-                        
+                        <li><a class="dropdown-item cursor" (click)="onSavedata()">Save Data</a></li>                        
                         <li><a class="dropdown-item cursor" (click)="onFetchdata()">Fetch Data</a></li>
-                        
 
                     </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/auth"><i class="bi bi-person-check"></i> Login</a></li>
-              
-                
+                </li>         
             </ul>
-            <form class="d-flex">                       
-                <input class="form-control me-2" type="search" placeholder="Search recipe" aria-label="Search">
-                <button class="btn btn-primary" type="submit" style="color:white;"><i class="bi bi-search"></i></button>            
-            </form>
             
         </div>
         

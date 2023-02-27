@@ -72,6 +72,7 @@ export class RecipeService {
     // aunque funciona si quitamos el slice()
     return this.recipes.slice();
   }
+  
 
   addIngredientsToShoppingList(ingredients:Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
