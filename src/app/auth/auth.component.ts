@@ -22,7 +22,7 @@ export class AuthComponent implements AfterViewInit, OnDestroy{
   // private closeSub: Subscription;
 
   // 1- Error alert with html
-  @ViewChild("myinput") myInputField: ElementRef;
+  @ViewChild("focus") inputFocused: ElementRef;
 
   constructor(
     private authService:AuthService, 
@@ -75,10 +75,10 @@ export class AuthComponent implements AfterViewInit, OnDestroy{
   // 2- Error alert with html
   onHandleError() {
     this.error = null;
-    this.myInputField.nativeElement.focus();
+    this.inputFocused.nativeElement.focus();
   } 
   ngAfterViewInit() {
-     this.myInputField.nativeElement.focus();
+     this.inputFocused.nativeElement.focus();
   }
 
   ngOnDestroy(): void {
