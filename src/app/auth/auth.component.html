@@ -1,12 +1,19 @@
-<div class="row justify-content-center">
+<ng-template appPlaceholder></ng-template>
+<div class="row justify-content-center">    
     <div class="col-lg-4 col-md-6 col-xs-12 p-3">
-        <div class="alert alert-danger" *ngIf="error">
+        <!-- <div class="alert alert-danger" *ngIf="error">
             <h4>{{ error }}</h4>
-        </div>        
+        </div>         -->
+        <app-alert 
+            [message]="error" 
+            *ngIf="error" 
+            (close)="onHandleError()"
+            ></app-alert>
+        
         <div class="d-flex justify-content-center" *ngIf="isLoading" style="min-height:210px">
             <app-loading-spinner></app-loading-spinner>
         </div>
-        <form #authForm = "ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+        <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
             <div class="form-group">
                 <label for="email">Email: </label>
                 <input  type="email" 
@@ -18,6 +25,7 @@
                         required
                         email
                         minlength="6"
+                        #focus
                         />                 
             </div>
             <div class="form-group">

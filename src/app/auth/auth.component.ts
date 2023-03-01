@@ -1,21 +1,35 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthResponseData, AuthService } from './auth.service';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
+
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent {
+export class AuthComponent implements AfterViewInit, OnDestroy{
 
   isLoginMode = true;
   isLoading = false;
   error: string = null;
+  
+  // @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
+  // private closeSub: Subscription;
 
-  constructor(private authService:AuthService, private router: Router ) {}
+  // 1- Error alert with html
+  @ViewChild("myinput") myInputField: ElementRef;
+
+  constructor(
+    private authService:AuthService, 
+    private router: Router,
+    private componentFactoryResolver: ComponentFactoryResolver
+    ) {}
+ 
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -42,12 +56,14 @@ export class AuthComponent {
       next: resData => {
         console.log(resData);
         this.isLoading = false;
-        this.router.navigate(['/recipes']);
+        this.router.navigate(['/recipes/0']);
       },
       error: errorMessage => {
         console.log(errorMessage);    
         this.error = errorMessage;
-        // this.error = "An error ocurred"
+        // Error alert create programaticamently
+        // this.showErrorAlert(errorMessage);
+        this.error = "An error ocurred"
         this.isLoading = false;
       }
     }
@@ -55,7 +71,44 @@ export class AuthComponent {
     
     form.reset();
   }
- 
+
+  // 2- Error alert with html
+  onHandleError() {
+    this.error = null;
+    this.myInputField.nativeElement.focus();
+  } 
+  ngAfterViewInit() {
+     this.myInputField.nativeElement.focus();
+  }
+
+  ngOnDestroy(): void {
+    // if(this.closeSub){
+    //   this.closeSub.unsubscribe();
+    // }
+  }
+
+  // Error alert programaticamente es decir que creo el html programaticamente
+  // Aunque es una manera bastante engorrosa de crearlo. Es preferible crearlo con html y viewchild
+  // private showErrorAlert(message: string) {
+  //   // Crear una instancia del AlertComponent no funcionara para ello estan las inyecciones de dependencias
+  //   // const alertComp = new AlertComponent();
+  //   // ahora usamos la instancia de la inyeccion de dependencias pasando como argumento el componente que nos interesa
+  //   const alertCompFactory = this.componentFactoryResolver.resolveComponentFactory(
+  //     AlertComponent
+  //   );
+
+  //   const hostViewContainerRef = this.alertHost.viewContainerRef;
+  //   hostViewContainerRef.clear();
+
+  //    const componentRef = hostViewContainerRef.createComponent(alertCompFactory);
+  //    componentRef.instance.message = message;
+  //    this.closeSub = componentRef.instance.close.subscribe( () => {
+  //     this.closeSub.unsubscribe();
+  //     hostViewContainerRef.clear();
+  //    });
+  // }
+
+   
 
 }
 
