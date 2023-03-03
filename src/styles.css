@@ -74,11 +74,11 @@ body {
 
 @media screen and (min-width: 0px) and (max-width:800px) { 
    body{
-    background-image: url('assets/fondo3.jpgs');   
+    background-image: url('assets/fondo3.jpg');   
     background-size: 100%;
    
     
-    }
+    }s
 }
 .myList{
     height:70vh;overflow-y: auto; overflow-x: hidden;
