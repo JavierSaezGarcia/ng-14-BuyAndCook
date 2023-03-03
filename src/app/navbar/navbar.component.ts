@@ -26,11 +26,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
   }
 
-  onSavedata(){
+  onSaveData(){
     this.dataStorageService.storeRecipes();
   }
 
-  onFetchdata(){
+  onFetchData(){
     this.dataStorageService.fetchRecipes().subscribe();
   }
 

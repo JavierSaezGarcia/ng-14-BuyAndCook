@@ -10,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root'
 })
 export class DataStorageService {
-
+ 
   private urlRecipes: string = 'https://ng-recipe-book-6bf5d-default-rtdb.europe-west1.firebasedatabase.app/recipes.json';
   
   
@@ -26,9 +26,8 @@ export class DataStorageService {
       .put(
         this.urlRecipes, 
         recipes 
-      )
-      .subscribe(response => {
-        console.log(response);
+      ).subscribe(response => {
+        console.log('response',response);
       })
   }
   fetchRecipes() {

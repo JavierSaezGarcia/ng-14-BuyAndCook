@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ComponentFactoryResolver, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable  } from 'rxjs';
 import { AuthResponseData, AuthService } from './auth.service';
-import { AlertComponent } from '../shared/alert/alert.component';
-import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
+
+
 
 
 @Component({
@@ -18,16 +18,16 @@ export class AuthComponent implements AfterViewInit, OnDestroy{
   isLoading = false;
   error: string = null;
   
+  
   // @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
   // private closeSub: Subscription;
 
   // 1- Error alert with html
-  @ViewChild("focus") inputFocused: ElementRef;
+  @ViewChild("focus") myInputField: ElementRef;
 
   constructor(
     private authService:AuthService, 
-    private router: Router,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private router: Router
     ) {}
  
 
@@ -44,6 +44,7 @@ export class AuthComponent implements AfterViewInit, OnDestroy{
     const email = form.value.email;
     const password = form.value.password;
     let authObs: Observable<AuthResponseData>;
+
     this.isLoading = true;
 
     if(this.isLoginMode){
@@ -61,9 +62,6 @@ export class AuthComponent implements AfterViewInit, OnDestroy{
       error: errorMessage => {
         console.log(errorMessage);    
         this.error = errorMessage;
-        // Error alert create programaticamently
-        // this.showErrorAlert(errorMessage);
-        this.error = "An error ocurred"
         this.isLoading = false;
       }
     }
@@ -75,10 +73,10 @@ export class AuthComponent implements AfterViewInit, OnDestroy{
   // 2- Error alert with html
   onHandleError() {
     this.error = null;
-    this.inputFocused.nativeElement.focus();
+    this.myInputField.nativeElement.focus();
   } 
   ngAfterViewInit() {
-     this.inputFocused.nativeElement.focus();
+     this.myInputField.nativeElement.focus();
   }
 
   ngOnDestroy(): void {
@@ -97,15 +95,15 @@ export class AuthComponent implements AfterViewInit, OnDestroy{
   //     AlertComponent
   //   );
 
-  //   const hostViewContainerRef = this.alertHost.viewContainerRef;
-  //   hostViewContainerRef.clear();
+  //   // const hostViewContainerRef = this.alertHost.viewContainerRef;
+  //   // hostViewContainerRef.clear();
 
-  //    const componentRef = hostViewContainerRef.createComponent(alertCompFactory);
-  //    componentRef.instance.message = message;
-  //    this.closeSub = componentRef.instance.close.subscribe( () => {
-  //     this.closeSub.unsubscribe();
-  //     hostViewContainerRef.clear();
-  //    });
+  //   //  const componentRef = hostViewContainerRef.createComponent(alertCompFactory);
+  //   //  componentRef.instance.message = message;
+  //   //  this.closeSub = componentRef.instance.close.subscribe( () => {
+  //   //   this.closeSub.unsubscribe();
+  //   //   hostViewContainerRef.clear();
+  //   //  });
   // }
 
    

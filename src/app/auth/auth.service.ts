@@ -22,7 +22,7 @@ export class AuthService {
 
   
 
-  private token = "AIzaSyB0jiyMwMhbAds03lRZEUTTn6ELaSPwrRI";
+  
  
   // BehaviorSubject al igual que cualquier otro Subject es tanto un Observable como un Observador. 
   // Llevándolo a concreto, significa que te puedes suscribir al igual que con un Observable normal 
@@ -146,30 +146,21 @@ export class AuthService {
   }
 
   private handleError(errorRes: HttpErrorResponse) {
-    let errorMessage = 'An unknown error ocurred!';
-    if (!errorRes.error || !errorRes.error.error) {          
-      return throwError(() => new Error(errorMessage))
+    let errorMessage = 'An unknown error occurred!';
+    
+    if (!errorRes.error || !errorRes.error.error) {
+      return throwError(() => new Error(errorMessage));
     }
-
     switch (errorRes.error.error.message) {
       case 'EMAIL_EXISTS':
-        errorMessage = `This email already exists`;
+        errorMessage = 'This email exists already';
         break;
       case 'EMAIL_NOT_FOUND':
-        errorMessage = `This email does not exists in our database`;
+        errorMessage = 'This email does not exist.';
         break;
       case 'INVALID_PASSWORD':
-        errorMessage = `This password is invalid`;
+        errorMessage = 'This password is not correct.';
         break;
-      case 'USER_DISABLED':
-        errorMessage = `This user  is disabled`;
-        break;
-      default:
-        errorRes = null;
-
-
-
-
     }
     return throwError(() => new Error(errorMessage))
 

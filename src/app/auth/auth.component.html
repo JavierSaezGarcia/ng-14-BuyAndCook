@@ -3,12 +3,12 @@
     <div class="col-lg-4 col-md-6 col-xs-12 p-3">
         <!-- <div class="alert alert-danger" *ngIf="error">
             <h4>{{ error }}</h4>
-        </div>         -->
+        </div>          -->
         <app-alert 
             [message]="error" 
             *ngIf="error" 
             (close)="onHandleError()"
-            ></app-alert>
+            ></app-alert> 
         
         <div class="d-flex justify-content-center" *ngIf="isLoading" style="min-height:210px">
             <app-loading-spinner></app-loading-spinner>
@@ -35,6 +35,7 @@
                         id="password" 
                         class="form-control" 
                         placeholder="Enter your password"
+                        autocomplete="off"
                         ngModel
                         name="password"
                         required                        

@@ -10,22 +10,22 @@
                 <li class="nav-item" *ngIf="isAuthenticated">
                     <a class="nav-link" 
                                         aria-current="page" 
-                                        routerLinkActive="active" 
-                                        [routerLinkActiveOptions]="{exact: true}"
+                                        routerLinkActive="active"                                         
                                         routerLink="/recipes">
                                         <img src="assets/recipes.svg" alt="recipes">
                                         Recipes</a>
                                     </li>
                                                               
-                <li class="nav-item"><a class="nav-link" 
-                                        routerLinkActive="active" 
+                <li class="nav-item" *ngIf="isAuthenticated">
+                    <a class="nav-link" 
+                                        routerLinkActive="active"                                        
                                         routerLink="/shopping-list">                                        
                                         <i class="bi bi-cart3"></i> Shopping List</a></li>        
                                        
                 
             </ul>
             
-            <form class="d-flex">                             
+            <form class="d-flex" *ngIf="isAuthenticated">                             
                 <input class="form-control me-2 form-control-sm" type="search" placeholder="Search recipe" aria-label="Search">
                 <button class="btn btn-primary btn-sm" type="submit" style="color:white;"><i class="bi bi-search"></i></button>            
             </form>
@@ -34,15 +34,15 @@
                 <li class="nav-item cursor" *ngIf="isAuthenticated">
                     <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/auth" (click)="onLogout()"><i class="bi bi-person-check"></i> Logout</a>
                 </li>
-                <li class="nav-item dropdown" >
+                <li class="nav-item dropdown" *ngIf="isAuthenticated">
                     <a class="nav-link dropdown-toggle cursor"  role="button" data-bs-toggle="dropdown"                        
                         aria-expanded="false">
                         <i class="bi bi-gear"></i>
                         Manage
                     </a>                    
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item cursor" (click)="onSavedata()">Save Data</a></li>                        
-                        <li><a class="dropdown-item cursor" (click)="onFetchdata()">Fetch Data</a></li>
+                        <li><a class="dropdown-item cursor" (click)="onSaveData()">Save Data</a></li>                        
+                        <li><a class="dropdown-item cursor" (click)="onFetchData()">Fetch Data</a></li>
 
                     </ul>
                 </li>         

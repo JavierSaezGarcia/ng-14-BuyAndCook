@@ -14,8 +14,8 @@ export class ShoppingListService {
   constructor() { }
 
   private ingredients: Ingredient[] = [
-    new Ingredient( 'Arroz', 500 ,'gr'),
-    new Ingredient( 'Tomate', 400 , 'gr')
+    // new Ingredient( 'Arroz', 500 ,'gr'),
+    // new Ingredient( 'Tomate', 400 , 'gr')
   ];
 
   getIngredients() {
@@ -26,7 +26,8 @@ export class ShoppingListService {
     return this.ingredients[index];
   }
 
-  addIngredient(ingredient: Ingredient) {
+  addIngredient(ingredient: Ingredient) {   
+   
     this.ingredients.push(ingredient);
     // 3.- emitimos la copia con el array completo para depues recogerlo en un observable que
     // escucha los eventos en el shoppingListComponent.ts
