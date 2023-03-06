@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core.module';
 
+
 @NgModule({
   declarations: [  
     // Declaracion de componentes generales que pertenecen a appcomponent  
@@ -26,6 +27,7 @@ import { CoreModule } from './core.module';
     // Importacion de los modulos de caracteristicas de los bloques o FeatureModules     
     CoreModule
   ], 
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { 

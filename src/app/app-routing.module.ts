@@ -1,11 +1,6 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
-
-
-
-
-
 const appRoutes: Routes = [
     { path: '', redirectTo: 'recipes/0', pathMatch: 'full'}, // pathMatch: 'full' hay que ponerlo por que tiene que buscar una ruta completa 
     { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then( m => m.RecipesModule )},

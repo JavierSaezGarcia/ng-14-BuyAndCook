@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
+
 
 
 @Component({
@@ -21,7 +22,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   
   ngOnInit(): void {
     this.ingredients = this.shoppingListService.getIngredients();
-   
+    
     // Despues de recoger los ingredientes nos subscribimos y asignamos los que recibimos 
     // this.ingredients = a lo que recibimos por el escuchador de eventos this.shoppingListService.ingredientsChanged
     // que lo inicializamos en una funcion de flecha como paranmetro 'ingredients' como si lo llamamos pepito
@@ -31,7 +32,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
           this.ingredients = ingredients; 
           
         }
-      )
+      )      
   }
 
   ngOnDestroy(): void {
