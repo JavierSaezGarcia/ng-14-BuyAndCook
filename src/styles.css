@@ -7,17 +7,11 @@
 
 .img-thumb{
     height: 105px; 
-    width: 105px;
+    /* width: 105px; */
+    width:  100vw;  
     object-fit: cover;
 }
 
-.img-detail{
-   
-    max-height:300px;
-    min-width:400px;
-    width:  100vw;   
-    object-fit: cover;
-}
 
 body {
     overflow-x:hidden;     
@@ -55,7 +49,8 @@ body {
 
 .fifty-chars {
     
-    width: 350px;
+    min-width: 10vw;
+    width: 100%;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -79,10 +74,30 @@ body {
    
     
     }
+    .fifty-chars {    
+        
+        width: 100%;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space:pre-wrap;
+        text-overflow: ellipsis;
+    }
+    .img-thumb{
+        height: auto;
+        max-height: 330px;         
+        width:  100%;  
+        object-fit: cover;
+    }
+    #navbarNav{
+        background-color:white;
+    }
 }
 .myList{
     height:70vh;overflow-y: auto; overflow-x: hidden;
 }
+
 
 
 

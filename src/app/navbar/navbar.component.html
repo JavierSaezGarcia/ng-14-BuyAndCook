@@ -12,7 +12,7 @@
                                         aria-current="page" 
                                         routerLinkActive="active"                                         
                                         routerLink="/recipes">
-                                        <img src="assets/recipes.svg" alt="recipes">
+                                        <i class="bi bi-heart"></i>
                                         Recipes</a>
                                     </li>
                                                               
@@ -25,7 +25,7 @@
                 
             </ul>
             
-            <form class="d-flex" *ngIf="isAuthenticated">                             
+            <form class="d-flex" *ngIf="isAuthenticated" style="padding:5px;">                             
                 <input class="form-control me-2 form-control-sm" type="search" placeholder="Search recipe" aria-label="Search">
                 <button class="btn btn-primary btn-sm" type="submit" style="color:white;"><i class="bi bi-search"></i></button>            
             </form>
