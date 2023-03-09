@@ -16,10 +16,8 @@
     }
 }
 @media screen and (min-width: 0px) and (max-width:800px) { 
-    .logo{
-        width:40vw; height: auto; 
-    }
-    .header{
-        height:80px
+    
+    .hide{
+        display: none;
     }
 }
