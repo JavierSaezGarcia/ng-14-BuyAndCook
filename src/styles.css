@@ -66,9 +66,12 @@ body {
 .mleft{
     margin-left:0.5rem;
 }
+.myList{
+    height:70vh;overflow-y: auto; overflow-x: hidden;
+}
 
 @media screen and (min-width: 0px) and (max-width:800px) { 
-   body{
+    body{
     background-image: url('assets/fondo3.jpg');   
     background-size: 100%;
    
@@ -93,10 +96,13 @@ body {
     #navbarNav{
         background-color:white;
     }
+    .myList{
+        
+        max-height: 60vh;
+    }
+   
 }
-.myList{
-    height:70vh;overflow-y: auto; overflow-x: hidden;
-}
+
 
 
 
