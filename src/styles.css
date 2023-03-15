@@ -72,9 +72,10 @@ body {
 
 @media screen and (min-width: 0px) and (max-width:800px) { 
     body{
-    background-image: url('assets/fondo3.jpg');   
+    /* background-image: url('assets/fondo3.jpg');   
     background-size: 100%;
-   
+    */
+    background-color: black;
     
     }
     .fifty-chars {    
@@ -98,7 +99,14 @@ body {
     }
     .myList{
         
-        max-height: 60vh;
+        max-height: 50vh;
+    }
+    .mobile{
+        background-color:rgb(51, 51, 51);
+    }
+    .separator{
+        margin-bottom:15px;
+        
     }
    
 }

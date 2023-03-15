@@ -9,7 +9,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  
+
+ 
   isAuthenticated = false;
   private userSub: Subscription;
 
