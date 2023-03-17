@@ -110,6 +110,15 @@ body {
     }
    
 }
+@media print{
+    img {
+        display: none;
+    }
+    app-header, app-navbar, app-shopping-edit{
+        display: none;
+    }
+
+}
 
 
 
