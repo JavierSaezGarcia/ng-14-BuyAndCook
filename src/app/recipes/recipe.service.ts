@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
+
 import { Subject } from 'rxjs';
+import { Store } from '@ngrx/store';
+import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
+import * as fromShoppingList from '../shopping-list/store/shopping-list-reducer';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,8 @@ export class RecipeService {
     'Hacer esta receta siempre me evoca recuerdos de cuando era un niño y mi abuela hacía 8 ó 9 para toda la familia. '
   ]
 
-  constructor(private shoppingListService: ShoppingListService) {};
+  constructor(
+              private store: Store<fromShoppingList.AppState>) {};
   
   private recipes: Recipe[] = [];
   
@@ -36,7 +40,8 @@ export class RecipeService {
   
 
   addIngredientsToShoppingList(ingredients:Ingredient[]) {
-    this.shoppingListService.addIngredients(ingredients);
+    // this.shoppingListService.addIngredients(ingredients);
+    this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
   }
   getRecipeById(id: number){
     return this.recipes[id];
