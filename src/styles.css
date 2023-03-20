@@ -114,9 +114,14 @@ body {
     img {
         display: none;
     }
-    app-header, app-navbar, app-shopping-edit{
+    app-header, app-navbar, app-shopping-edit, app-recipe-list{
         display: none;
     }
+    p, a, li, ul{
+        color: #000!important;
+    }
+    
+
 
 }
 

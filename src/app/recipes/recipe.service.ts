@@ -5,7 +5,8 @@ import { Recipe } from './recipe.model';
 import { Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
-import * as fromShoppingList from '../shopping-list/store/shopping-list-reducer';
+import * as fromApp from '../store/app.reducer';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,10 @@ export class RecipeService {
     'Hacer esta receta siempre me evoca recuerdos de cuando era un niño y mi abuela hacía 8 ó 9 para toda la familia. '
   ]
 
-  constructor(
-              private store: Store<fromShoppingList.AppState>) {};
+  constructor(private store: Store<fromApp.AppState>) {};
   
   private recipes: Recipe[] = [];
+  
   
     
   
@@ -31,6 +32,7 @@ export class RecipeService {
     this.recipes = recipes;
     this.recipesChanged.next(this.recipes.slice());
   }
+  
 
   getRecipes(){
     // Creo un array copia de recipes para no modificar el original
@@ -61,4 +63,6 @@ export class RecipeService {
     this.recipes.splice(index, 1);    
     this.recipesChanged.next( this.recipes.slice());   
   }
+  
+  
 }

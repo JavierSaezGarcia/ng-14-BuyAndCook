@@ -9,11 +9,11 @@ export interface State {
     editedIngredientIndex: number;
 }
 
-export interface AppState {
-    shoppingList: State
-}
+// export interface AppState {
+//     shoppingList: State
+// }
 
-const initialState = {
+const initialState: State = {
     ingredients: [
         // new Ingredient( 'Arroz', 500 ,'gr'),
         // new Ingredient( 'Tomate', 400 , 'gr')

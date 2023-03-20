@@ -8,7 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core.module';
-import { shoppingListReducer } from './shopping-list/store/shopping-list-reducer';
+
+import * as fromApp from './store/app.reducer';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list-reducer
     // Importado del archivo de configuracion de la ruta principal de la aplicacion
     AppRoutingModule,   
     // Importacion de los modulos de caracteristicas de los bloques o FeatureModules  
-    StoreModule.forRoot({shoppingList: shoppingListReducer}),   
+    StoreModule.forRoot(fromApp.appReducer),   
     CoreModule
   ], 
   

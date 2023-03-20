@@ -5,6 +5,9 @@ import { Subscription } from 'rxjs';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { RecipeService } from '../recipe.service';
 import { AuthService } from '../../auth/auth.service';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../store/app.reducer';
+
 
 @Component({
   selector: 'app-recipe-edit',
@@ -24,7 +27,8 @@ export class RecipeEditComponent implements OnInit {
               private recipeService: RecipeService,
               private router: Router,
               private dataStorageService: DataStorageService,
-              private authService: AuthService ) {}
+              private authService: AuthService,
+              private store: Store<fromApp.AppState> ) {}
   
   ngOnInit(): void {
     this.route.params
@@ -35,11 +39,11 @@ export class RecipeEditComponent implements OnInit {
           this.initForm();
         }
       );
-      this.userSub = this.authService.user.subscribe(user => {
-        this.isAuthenticated = !!user; // truco mas simple en vez de esto =>  !user ? false : true
+      // this.userSub = this.authService.user.subscribe(user => {
+      //   this.isAuthenticated = !!user; // truco mas simple en vez de esto =>  !user ? false : true
         
-        console.log('que es',this.isAuthenticated);
-      });
+      //   console.log('que es',this.isAuthenticated);
+      // });
   }
 
   onSubmit() {

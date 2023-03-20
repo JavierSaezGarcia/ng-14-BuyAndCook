@@ -47,4 +47,7 @@ export class RecipeDetailComponent implements OnInit{
     this.dataStorageService.storeRecipes();
     this.router.navigate(['../'],{relativeTo: this.route} );
   }
+  
+  
+ 
 }
