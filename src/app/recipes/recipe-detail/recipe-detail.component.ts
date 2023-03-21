@@ -30,7 +30,8 @@ export class RecipeDetailComponent implements OnInit{
 
   onAddToShoppingList(){
     
-    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);    
+    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+    
     
     this.router.navigate(['shopping-list']);
   }
@@ -62,8 +63,7 @@ export class RecipeDetailComponent implements OnInit{
     
     document.body.innerHTML = printContents;   
     
-    window.print();
-    
+    window.print();   
     
     location.reload(); 
     
