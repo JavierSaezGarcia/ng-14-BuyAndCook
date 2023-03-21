@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core.module';
 
 import * as fromApp from './store/app.reducer';
-import { EffectsModule } from '@ngrx/effects';
+
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,   
     // Importacion de los modulos de caracteristicas de los bloques o FeatureModules  
     StoreModule.forRoot(fromApp.appReducer),   
-    CoreModule, EffectsModule.forRoot([])
+    CoreModule
   ], 
   
   bootstrap: [AppComponent]

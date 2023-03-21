@@ -32,10 +32,7 @@ export class DataStorageService {
     
         return this.http
         .get<Recipe[]>(this.urlRecipes
-        // o return this.http.get<Recipe[]>(this.urlRecipes + '?auth=' + user.token) pero es mejor la sigueinte opcion
-          // {
-          //   params: new HttpParams().set('auth', this.authService.user. )
-          // }
+       
         )
           .pipe(
             map(recipes => {
@@ -69,8 +66,8 @@ export class DataStorageService {
           )   
 
           if( this.recipeSelected.length > 0 ){  
-            // this.fetchRecipes();          
-              console.log('entro');        
+             
+              
             return this.recipeSelected;
 
           }else{
