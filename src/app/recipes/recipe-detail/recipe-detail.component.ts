@@ -47,6 +47,31 @@ export class RecipeDetailComponent implements OnInit{
     this.dataStorageService.storeRecipes();
     this.router.navigate(['../'],{relativeTo: this.route} );
   }
+  onPrint() {
+    if(!document.getElementById('collapseOne').classList.contains('show')){
+       
+      document.getElementById('collapseOne').classList.add('show');
+      document.getElementById('printer').setAttribute("aria-expanded", "true");
+      
+    }else{
+      document.getElementById('collapseOne').classList.remove('show');
+      document.getElementById('printer').setAttribute("aria-expanded", "false");
+    }
+
+    
+    let printContents = document.getElementById('print').innerHTML;   
+    
+    document.body.innerHTML = printContents;   
+    
+    window.print();
+    document.body.style.filter = "blur(5px)";
+    
+    location.reload(); 
+    
+
+  
+
+  }
   
   
  

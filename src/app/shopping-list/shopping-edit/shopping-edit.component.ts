@@ -93,7 +93,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy{
     this.subscription.unsubscribe();
     this.store.dispatch(new ShoppingListActions.StopEdit());
   }
-  
+  printable(){
+    window.print();
+  }
 
 }
 

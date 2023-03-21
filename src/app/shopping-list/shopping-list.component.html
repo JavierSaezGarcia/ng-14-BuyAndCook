@@ -5,10 +5,11 @@
     <h4>Ingredients List: </h4>
     
     <ul class="list-group col-xs-12 col-md-3 cursor">
+      
       <a *ngFor="let ingredient of (ingredients | async).ingredients; let i = index" 
           class="list-group-item" 
           (click)="onEditItem(i)"
-          >{{ i }} - {{ ingredient.name }} ({{
+          >{{ i+1 }} - {{ ingredient.name }} ({{
         ingredient.amount }}) {{ ingredient.measure }}</a>
     </ul>
   </div>
