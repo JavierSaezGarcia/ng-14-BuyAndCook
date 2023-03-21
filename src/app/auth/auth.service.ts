@@ -121,7 +121,7 @@ export class AuthService {
         new Date(userData._tokenExpirationDate).getTime() - 
         new Date().getTime();
         
-        console.log('me quedan', expirationDuration);
+       // console.log('me quedan', expirationDuration);
       this.autoLogout(expirationDuration);
     }
   }

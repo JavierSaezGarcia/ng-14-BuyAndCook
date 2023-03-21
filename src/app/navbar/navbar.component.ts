@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private dataStorageService: DataStorageService,
     private authService: AuthService,
     private store: Store<fromApp.AppState>
+    
     ) {}
   
   ngOnInit(): void {
@@ -44,9 +45,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.dataStorageService.fetchRecipes().subscribe();
   }
   onFetchDataSelect( condition: string ){
-    console.log(condition);
+    
     this.dataStorageService.fetchRecipesWith(condition).subscribe();
     this.inputName.nativeElement.value = '';
+   
   }
 
   onLogout() {
@@ -54,6 +56,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    
     this.userSub.unsubscribe();
   }
 

@@ -57,7 +57,7 @@ export class AuthComponent implements AfterViewInit, OnDestroy{
       next: resData => {
         console.log(resData);
         this.isLoading = false;
-        this.router.navigate(['/recipes/0']);
+        this.router.navigate(['/recipes']);
       },
       error: errorMessage => {
         console.log(errorMessage);    

@@ -16,6 +16,7 @@ export class RecipeListComponent implements OnInit, OnDestroy{
   recipes: Recipe[];
   recipeSubs: Subscription;
 
+
   constructor(private recipeService: RecipeService,
               private router: Router,
               private route: ActivatedRoute){}
@@ -30,8 +31,9 @@ export class RecipeListComponent implements OnInit, OnDestroy{
     // Recogemos la emision (emit) del hijo (recipe-item)
     this.recipes = this.recipeService.getRecipes();
     
+    
   } 
-
+  
   ngOnDestroy(): void {
     this.recipeSubs.unsubscribe();
   }
