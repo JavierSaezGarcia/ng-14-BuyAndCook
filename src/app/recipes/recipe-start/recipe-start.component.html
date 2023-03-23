@@ -1,2 +1,9 @@
-<h3>Please select a recipe!</h3>
-<img src="assets/recipe.png" width="100%" height="auto" alt="">
+<h3>Please select a recipe or play the animations!</h3>
+<button (click)="onAnimate()"  class="btn btn-warning">Click me</button>
+<button class="btn btn-success ms-2" [@btnMove]="stateMove" (mouseenter)="onMove()" (mouseleave)="onLeaved()" >Hover Animate</button>
+<div class="row">
+    <div class="col-12">
+        <img [@imgState]="state" src="assets/recipe.png" width="50%" height="auto" alt="">
+   </div>
+</div>
+

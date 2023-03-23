@@ -6,7 +6,7 @@
     
     <ul class="list-group col-xs-12 col-md-3 cursor">
       
-      <a *ngFor="let ingredient of (ingredients | async).ingredients; let i = index" 
+      <a *ngFor="let ingredient of (ingredients | async).ingredients; let i = index"  [@list]="state"
           class="list-group-item" 
           (click)="onEditItem(i)"
           >{{ i+1 }} - {{ ingredient.name }} ({{

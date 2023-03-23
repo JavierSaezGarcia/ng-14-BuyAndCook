@@ -4,6 +4,15 @@ import { Observable, Subscription } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 import * as ShoppingListActions  from './store/shopping-list.actions';
 import * as fromApp from '../store/app.reducer';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+  
+} from '@angular/animations';
+
 
 
 
@@ -11,15 +20,32 @@ import * as fromApp from '../store/app.reducer';
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.css']
+  styleUrls: ['./shopping-list.component.css'],
+  animations: [
+    trigger('list', [
+      state('in', style({
+        opacity: 1,
+        transform: 'translateX(0px)'
+      })),
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateX(100px)'
+          
+
+        }),
+        animate('0.2s ease-in')
+      ]) 
+    ])
+  ]
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
-
+  
   ingredients: Observable<{ingredients:  Ingredient[]}>;
   
   // es recomendable crear una propiedad de tipo Subscription 
   // y asignarle el observable para despues podernos desubscribir en el OnDestroy
-  private changeSubs: Subscription;
+  // private changeSubs: Subscription;
   // Inyectamos el sevicio
   constructor(private store: Store<fromApp.AppState>){}
   

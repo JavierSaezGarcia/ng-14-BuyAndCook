@@ -4,9 +4,9 @@
     <div class="list-group myList">        
         <!-- [recipe] es la referencia que he exportado con el Input desde recipeListComponent.ts 
         y le asigno el elemento iterador recipeElement para que lo itere -->                    
-        <app-recipe-item         
+        <app-recipe-item      
             *ngFor="let recipeElement of recipes; let i = index"            
-              [recipe]="recipeElement"
+              [recipe]="recipeElement" 
               [index]="i">
         </app-recipe-item>        
     </div>    

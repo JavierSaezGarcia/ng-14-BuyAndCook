@@ -28,6 +28,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy{
   editMode = false;
   editedItemIndex: number;
   editedItem: Ingredient;
+  
 
   constructor(private store: Store<fromApp.AppState>){}
   
